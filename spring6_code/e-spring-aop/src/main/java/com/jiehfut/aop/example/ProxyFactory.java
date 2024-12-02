@@ -10,6 +10,7 @@ public class ProxyFactory {
 
     // 需要代理的目标对象
     private Object target;
+
     public  ProxyFactory(Object target) {
         this.target = target;
     }
