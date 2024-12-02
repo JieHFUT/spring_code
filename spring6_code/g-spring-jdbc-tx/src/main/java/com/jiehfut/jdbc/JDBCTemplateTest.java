@@ -47,9 +47,7 @@ public class JDBCTemplateTest {
 
 
 
-
-
-
+    // 查询表中数据，以对象形式返回
     @Test
     public void testQueryReturnObject(){
         String sql = "select * from t_emp where id = ?";
@@ -65,6 +63,8 @@ public class JDBCTemplateTest {
         System.out.println(queryResult.toString());
     }
 
+
+
     @Test
     public void testQueryReturnObjectWithoutResultSet(){
         String sql = "select * from t_emp where id = ?";
@@ -73,6 +73,7 @@ public class JDBCTemplateTest {
     }
 
 
+    // 查询表中数据，以 list 集合形式返回
     @Test
     public void testQueryReturnList(){
         String sql = "select * from t_emp";
@@ -84,8 +85,14 @@ public class JDBCTemplateTest {
 
 
 
+    // 查询表中多少条记录
+    @Test
+    public void testSingleValue(){
+        String sql = "select count(*) from t_emp";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
+        System.out.println("count = " + count);
+    }
 
-
-
+    
 
 }
