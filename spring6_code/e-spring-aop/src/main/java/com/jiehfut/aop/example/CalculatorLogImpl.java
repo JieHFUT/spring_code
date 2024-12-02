@@ -1,7 +1,7 @@
 package com.jiehfut.aop.example;
 
 
-// 带日志功能的实现类，在核心操作前后会输出日志
+// 带日志功能的实现类，在核心操作前后会输出日志（如何分离日志信息和核心业务呢？=> 代理模式）
 public class CalculatorLogImpl implements Calculator {
 
     @Override
