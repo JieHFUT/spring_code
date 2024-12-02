@@ -1,6 +1,7 @@
 package com.jiehfut.tx;
 
 import com.jiehfut.tx.controller.BookController;
+import com.jiehfut.tx.controller.CheckoutController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,22 +23,19 @@ public class TestBookTX {
     @Autowired
     private BookController bookController;
 
+    @Autowired
+    private CheckoutController checkoutController;
+
     @Test
     public void testBuyBook(){
         bookController.buyBook(2, 1);
     }
 
-    /**
-     * 事务的属性
-     * 1.只读：@Transactional(readOnly = true) => 表示只能进行查询，不能修改添加和删除
-     *
-     * 2.超时：@Transactional(timeout = 3) => 表示在设置的超时时长内没有完成操作就报异常
-     *
-     * 3.只读：@Transactional(...) => 可以设置哪些异常不进行回滚
-     *
-     * 4.隔离级别：
-     *
-     * 5.事务的传播行为：事务方法之间进行调用，事务如何使用
-     */
+
+    @Test
+    public void testCheckoutBooks(){
+        Integer[] bookIds = {1, 2};
+        checkoutController.buyBook(bookIds, 1);
+    }
 
 }
