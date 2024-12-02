@@ -11,7 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import java.util.List;
 
 @Component
-@SpringJUnitConfig(locations = "classpath:bean.xml")
+@SpringJUnitConfig(locations = "classpath:bean-jdbc.xml")
 public class JDBCTemplateTest {
 
     // 注入相关类
