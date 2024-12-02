@@ -1,0 +1,5 @@
+@Resource注解属于JDK扩展包，所以不在JDK当中，需要额外引入以下依赖：
+如果是JDK8的话不需要额外引入依赖。高于JDK11或低于JDK8需要引入以下依赖
+
+
+@Resource 注解默认根据名称装配byName，未指定name时，使用属性名作为name。通过name找不到的话会自动启动通过类型byType装配
