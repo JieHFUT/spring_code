@@ -2,6 +2,7 @@ package com.jiehfut.test.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,7 +50,8 @@ public class TestParamController {
     public String testParams(String username,
                              @RequestParam(value = "password", required = false, defaultValue = "default password") String pwd,
                              String[] hobby,
-                             @RequestHeader(value = "Host", required = true, defaultValue = "default:::localhost:8080") String host) {
+                             @RequestHeader(value = "Host", required = true, defaultValue = "default:::localhost:8080") String host,
+                             @CookieValue(value = "JSESSIONID", required = false) String JSESSIONID) {
         // 保证形式参数名称和请求中的参数名称保持一致即可
         // GET /mvc/testParams?username=zhangsan&password=4365&hobby=a&hobby=b&hobby=c HTTP/1.1
         System.out.println("username = " + username + ", password = " + pwd + ", hobby = " + Arrays.toString(hobby));
@@ -57,7 +59,8 @@ public class TestParamController {
 
         // 请求头中的信息可以和控制器中的形参进行映射
         System.out.println("host = " + host); // host = localhost:8080
-
+        // 获取 JSESSIONID
+        System.out.println("JSESSIONID = " + JSESSIONID);
         return "success";
     }
 
