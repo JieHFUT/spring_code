@@ -20,10 +20,10 @@ public class RequestMappingController {
 
 
 
-    // 1.根据请求地址来匹配请求
-    // 2.根据请求方式来匹配请求
-    // 3.根据请求参数来匹配请求
-    // 4.根据请求头信息匹配请求
+    // 1.根据请求地址来匹配请求 404
+    // 2.根据请求方式来匹配请求 405
+    // 3.根据请求参数来匹配请求 400
+    // 4.根据请求头信息匹配请求 404
 
 
 
@@ -114,5 +114,23 @@ public class RequestMappingController {
 
 
 
-
+    // springmvc 支持 ant 风格的路径
+    @RequestMapping("/a?a/testAnt")
+    public String testAnt1() {
+        return "success";
+    }
+    @RequestMapping("/a*a/testAnt")
+    public String testAnt2() {
+        return "success";
+    }
+    @RequestMapping("/**/a/testAnt")
+    public String testAnt3() {
+        return "success";
+    }
+    /**
+     * a?a    ? 可以表示任意的单个字符（ / ? 不好使用）
+     * a*a    * 可以表示任意的 0个或多个字符
+     * a**a   ** 表示任意的一层或多层目录
+     */
+     // 注意：在使用 ** 时，只能使用 /**/xxx 的方式
 }
