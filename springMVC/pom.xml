@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>a-springMVC-example</module>
+        <module>b-springMVC-element</module>
     </modules>
 
     <properties>
@@ -19,13 +20,17 @@
     </properties>
 
 
+
     <dependencies>
         <!-- SpringMVC -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.3.1</version>
+            <version>6.1.0</version>
         </dependency>
+
+
+
 
         <!-- 日志 -->
         <dependency>
@@ -35,19 +40,42 @@
         </dependency>
 
         <!-- ServletAPI -->
-        <dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+<!--        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-            <scope>provided</scope> <!-- 已被提供，意味着服务器已经提供，jar不会参与打包 -->
+            <scope>provided</scope> &lt;!&ndash; 已被提供，意味着服务器已经提供，jar不会参与打包 &ndash;&gt;
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+<!--        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
+            <scope>provided</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
         </dependency>
 
+
+
         <!-- Spring5和Thymeleaf整合包 -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring5</artifactId>
             <version>3.0.12.RELEASE</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring6</artifactId>
+            <version>3.1.2.RELEASE</version>
         </dependency>
     </dependencies>
+
 
 </project>
