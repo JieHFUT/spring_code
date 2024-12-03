@@ -3,6 +3,7 @@ package com.jiehfut.test.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -95,6 +96,10 @@ public class RequestMappingController {
 
 
 
+
+
+
+
     // 1.根据请求地址来匹配请求
     // 2.根据请求方式来匹配请求
     // 3.根据请求参数来匹配请求
@@ -111,6 +116,9 @@ public class RequestMappingController {
         // 且请求头必需携带 key1，不能携带 key2，必需携带 key3 并且值必需为 value3，且必需携带 key4，且值不能等于 value4
         return "success";
     }
+
+
+
 
 
 
@@ -133,4 +141,20 @@ public class RequestMappingController {
      * a**a   ** 表示任意的一层或多层目录
      */
      // 注意：在使用 ** 时，只能使用 /**/xxx 的方式
+
+
+
+
+    // springmvc 支持路径中的占位符 {} 为占位符
+    @RequestMapping("testRESTful/{classes}/{username}")
+    public String testRESTful(@PathVariable("classes")Integer classes,
+                              @PathVariable("username")String username) {
+        System.out.println("classes:" + classes);
+        System.out.println("username:" + username);
+
+        return "success";
+    }
+
+
+
 }
