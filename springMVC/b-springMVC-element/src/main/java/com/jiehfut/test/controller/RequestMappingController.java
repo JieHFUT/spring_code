@@ -123,18 +123,19 @@ public class RequestMappingController {
 
 
     // springmvc 支持 ant 风格的路径
-    @RequestMapping("/a?a/testAnt")
-    public String testAnt1() {
-        return "success";
-    }
-    @RequestMapping("/a*a/testAnt")
-    public String testAnt2() {
-        return "success";
-    }
-    @RequestMapping("/**/a/testAnt")
-    public String testAnt3() {
-        return "success";
-    }
+//    @RequestMapping("/a?a/testAnt")
+//    public String testAnt1() {
+//        return "success";
+//    }
+//    @RequestMapping("/a*a/testAnt")
+//    public String testAnt2() {
+//        return "success";
+//    }
+//    @RequestMapping("/**/a/testAnt")
+//    public String testAnt3() {
+//        return "success";
+//    }
+
     /**
      * a?a    ? 可以表示任意的单个字符（ / ? 不好使用）
      * a*a    * 可以表示任意的 0个或多个字符
