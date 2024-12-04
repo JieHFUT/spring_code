@@ -11,3 +11,14 @@
      * 一般来说域对象的范围不一样，其生命周期也不一样
      *
      */
+
+
+     直接返回视图名称，如："success"，就是属于请求转发操作
+     视图有两种
+     1.转发视图 => internalResourceView
+     2.重定向视图 => RedirectView
+
+     视图中配置了 Thymeleaf 视图，由视图解析器解析后得到的就是 Thymeleaf 视图
+     1.直接返回视图名称，如："success"，就是属于请求转发操作
+     2.给视图添加前缀 "forward:/success"  "redirect:/success"
+     3.

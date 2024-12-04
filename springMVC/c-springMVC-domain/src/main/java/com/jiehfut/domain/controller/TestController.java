@@ -14,6 +14,11 @@ public class TestController {
     }
 
 
+    @RequestMapping("/test-view")
+    public String view() {
+        return "test-view";
+    }
+
 
 
 
