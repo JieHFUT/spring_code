@@ -1,5 +1,6 @@
 package com.jiehfut.test.controller;
 
+import com.jiehfut.test.bean.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -45,7 +46,18 @@ public class TestParamController {
 
 
 
-    // 2.通过使用控制器的参数获取请求中的参数，对于复选框可以使用一个字符串获取，也可以使用一个数组获取
+    /**
+     * 2.通过使用控制器的参数获取请求中的参数，对于复选框可以使用一个字符串获取，也可以使用一个数组获取
+     * @RequestParam 请求参数和控制器中的形参创建映射关系
+     * @RequestHeader   请求头信息和控制器中的形参创建映射关系
+     * @CookieValue     将cookie数据和控制器方法的形参创建映射关系
+     * @param username
+     * @param pwd
+     * @param hobby
+     * @param host
+     * @param JSESSIONID
+     * @return
+     */
     @RequestMapping("/testParamsArray")
     public String testParams(String username,
                              @RequestParam(value = "password", required = false, defaultValue = "default password") String pwd,
@@ -92,6 +104,66 @@ public class TestParamController {
      * value  required  defaultValue
      *
      */
+
+
+    /**
+     * 直接将请求中的参数用实体类对象来接收
+     * @return
+     */
+    @RequestMapping("/testbean")
+    public String testbean(User user,
+                           @RequestHeader(value = "Content-Type") String contentType,
+                           @RequestHeader(value = "Content-Length") Integer contentLength
+                           ) {
+        System.out.println("user = " + user);
+        // user = User{id=null, username='李四', password='32413', age=12, sex='女', email='3492779706@qq.com'}
+
+
+        System.out.println("contentType = " + contentType);
+        System.out.println("contentLength = " + contentLength);
+        return "success";
+    }
+
+
+    /**
+     * 乱码问题：
+     * get 请求的乱码是由于 Tomcat 造成的，在 server.xml 中，在设置端口的地方添加一个 URIEcoding="UTF-8"
+     * post 请求的乱码问题需要在获取参数之前指定请求使用的字符集（但是在我们设置编码之前 DispatcherServlet 已经获取了参数）
+     * 所以在 controller 层里设置编码已经没有用了，所以要找到比 DispatcherServlet 启动更早的组件
+     * 在 Tomcat 中组件的初始化顺序：servletContext 监听器 => 过滤器 filter => servlet
+     * 所以在 过滤器 中设置统一编码字符集 => web.xml
+     */
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * 域对象中共享数据
+     * 请求域、session域（浏览器开启到浏览器关闭 - 钝化 && 活化 = 序列化到磁盘上）、servletContext应用域（服务器开启到服务器关闭）
+     *
+     * 服务器关闭了，浏览器没有关闭，存储在 session 会话中的数据就会通过序列化的形式序列化到磁盘上
+     * 如果浏览器任然没有关闭，但是服务器重新开启，就会将钝化之后文件中的内容重新读取到 session 中，叫做活化
+     *
+     * session 只和浏览器有关系
+     * servletContext（上下文对象）应用域，这个对象只在服务器开启的时候创建，服务器关闭的时候销毁
+     *
+     * 一般来说域对象的范围不一样，其生命周期也不一样
+     * 
+     */
+
+
+
+
+
+
+
 
 
 

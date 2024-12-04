@@ -21,4 +21,47 @@
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern> <!-- / 表示前端发送的所有的请求，但是不包括 .jsp 文件的请求，因为 .jsp 文件本身就是servlet，本身就是通过服务器指定的servlet来请求处理的，不用DispatcherServlet处理，否则会把.jsp文件请求当成普通请求处理，不会找到.jsp页面-->
     </servlet-mapping>
+
+
+    <!--配置 filter 过滤器，在过滤器中统一设置请求中的字符集-->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name> <!--给 CharacterEncodingFilter 属性的 encoding 属性赋值-->
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <!--设置响应的编码判别为 true-->
+            <param-name>forceResponseEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--
+        public class CharacterEncodingFilter extends OncePerRequestFilter {
+            @Nullable // 可以为空
+            private String encoding;
+            private boolean forceRequestEncoding; // 默认 false
+            private boolean forceResponseEncoding; // 默认 false
+            protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+                String encoding = this.getEncoding();
+                // 如果你设置了编码格式，此属性不为空，就会执行下面的给请求（响应）设置编码的操作
+                if (encoding != null) {
+                    if (this.isForceRequestEncoding() || request.getCharacterEncoding() == null) {
+                        request.setCharacterEncoding(encoding);
+                    }
+                    // 想设置响应的编码就必需设置 forceResponseEncoding 的值为 true
+                    if (this.isForceResponseEncoding()) {
+                        response.setCharacterEncoding(encoding);
+                    }
+                }
+
+                filterChain.doFilter(request, response);
+            }
+    -->
 </web-app>
