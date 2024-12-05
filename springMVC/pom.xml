@@ -13,6 +13,7 @@
         <module>b-springMVC-element</module>
         <module>c-springMVC-domain</module>
         <module>d-springMVC-jsp</module>
+        <module>e-springMVC-RESTful</module>
     </modules>
 
     <properties>

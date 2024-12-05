@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>RESTFUL</title>
+</head>
+<body>
+    <h1>RESTFUL</h1><br>
+
+    <a th:href="@{/user}">查询所有的用户信息</a>
+    <a th:href="@{/user/1}">根据ID查询用户信息</a>
+
+    <form th:action="@{/user}" method="post">
+        username: <input type="text" name="username"><br>
+        password: <input type="password" name="password"><br>
+        <input type="submit" value="addUser"><br>
+    </form>
+
+    <form th:action="@{/user}" method="put">
+        username: <input type="text" name="username"><br>
+        password: <input type="password" name="password"><br>
+        <input type="submit" value="update"><br>
+    </form>
+
+
+
+</body>
+</html>
