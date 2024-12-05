@@ -12,6 +12,7 @@
         <module>a-springMVC-example</module>
         <module>b-springMVC-element</module>
         <module>c-springMVC-domain</module>
+        <module>d-springMVC-jsp</module>
     </modules>
 
     <properties>
