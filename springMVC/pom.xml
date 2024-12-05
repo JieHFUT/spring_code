@@ -14,6 +14,7 @@
         <module>c-springMVC-domain</module>
         <module>d-springMVC-jsp</module>
         <module>e-springMVC-RESTful</module>
+        <module>f-springMVC-RESTfulProject</module>
     </modules>
 
     <properties>
