@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.UUID;
 
 @RestController
 public class FileUpAndDownController {
@@ -65,11 +67,61 @@ public class FileUpAndDownController {
     // 使用什么类型接收呢，springMVC 将文件封装到一个 MultipartFile 对象中，该对象中封装了 transferTo 方法用于上传
     // 要用上面的 springMVC 封装的 MultipartFile 对象，需要配置文件上传解析器
     @RequestMapping(value = "/testUp")
-    public String testUp(MultipartFile photo) {
-        System.out.println(photo.getName());
-        System.out.println(photo.getOriginalFilename());
+    public String testUp(MultipartFile photo, HttpSession session) throws Exception {
+        System.out.println(photo.getName()); // photo
+        System.out.println(photo.getOriginalFilename()); // 核心硬件评测.png
+        ServletContext servletContext = session.getServletContext();
+        // 将图片放在服务器的 picture 目录下
+        String photoPath = servletContext.getRealPath("picture");
+        // photoPath = E:\code\spring_code\springMVC\g-springMVC-HttpMessageConverter\target\g-springMVC-HttpMessageConverter-1.0-SNAPSHOT\picture
+        System.out.println("photoPath = " + photoPath);
+        File file = new File(photoPath);
+        // 判断路径是否存在
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        String finalPath = photoPath + File.separator + photo.getOriginalFilename(); // File.separator 是文件分隔符
+        // finalPath = E:\code\spring_code\springMVC\g-springMVC-HttpMessageConverter\target\g-springMVC-HttpMessageConverter-1.0-SNAPSHOT\picture\核心硬件评测.png
+        System.out.println("finalPath = " + finalPath);
+        photo.transferTo(new File(finalPath)); // 该方法实际上封装的就是先读再写
         return "success";
     }
+
+
+
+    // 上面这种方法会导致上传的图片名字不能重复，使用 UUID 来代替名字
+    @RequestMapping(value = "/testUpNoRepeat")
+    public String testUpNoRepeat(MultipartFile photo, HttpSession session) throws Exception {
+        System.out.println(photo.getName()); // photo
+        System.out.println(photo.getOriginalFilename()); // 核心硬件评测.png
+        // 获取上传文件的后缀名
+        String suffix = photo.getOriginalFilename().substring(photo.getOriginalFilename().lastIndexOf(".")); // .png
+        // 将 UUID 作为文件名称
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        // 将 uuid 和后缀名字拼接的结果作为最终的文件名称
+        String finalName = uuid + suffix;
+
+
+        ServletContext servletContext = session.getServletContext();
+        // 将图片放在服务器的 picture 目录下，通过 servletContext 来获得服务器中 picture 目录的路径名称
+        String photoPath = servletContext.getRealPath("picture");
+        // photoPath = E:\code\spring_code\springMVC\g-springMVC-HttpMessageConverter\target\g-springMVC-HttpMessageConverter-1.0-SNAPSHOT\picture
+        System.out.println("photoPath = " + photoPath);
+        File file = new File(photoPath);
+        // 判断路径是否存在
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        String finalPath = photoPath + File.separator + finalName; // File.separator 是文件分隔符
+        // finalPath = E:\code\spring_code\springMVC\g-springMVC-HttpMessageConverter\target\g-springMVC-HttpMessageConverter-1.0-SNAPSHOT\picture\核心硬件评测.png
+        System.out.println("finalPath = " + finalPath);
+        photo.transferTo(new File(finalPath)); // 该方法实际上封装的就是先读再写
+        return "success";
+    }
+
+
+
+
 
 
 

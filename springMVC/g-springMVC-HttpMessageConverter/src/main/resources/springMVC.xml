@@ -47,6 +47,7 @@
 
     <!--配置文件上传解析器，springMVC 用于将上传的文件封装成为 MultipartFile -->
     <!--由 spring 的 ioc 容器自己去访问获得该 bean，根据 id 获取-->
+    <!--由于 springMVC 是根据 ID 获取该 bean 的，所以我们需要按照设定设置一个 ID-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
 
 </beans>
