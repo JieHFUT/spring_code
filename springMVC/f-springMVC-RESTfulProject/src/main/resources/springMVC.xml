@@ -37,8 +37,12 @@
     <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
 
     <!--开放对静态资源的访问，由于所有的请求都被设置的前端控制器处理的，静态资源是通过默认的 servlet 处理-->
-    <!--SpringMVC 找不到对应的资源后，由默认的 servlet 去找 -->
+    <!--SpringMVC 找不到对应的资源后，由默认的 servlet 去找，如果还找不到，就由默认的 servlet 报错 -->
     <mvc:default-servlet-handler/>
+
+    <!--设置用户点击添加按钮后跳转到响应的视图 "/toAdd" => "employee_add"-->
+    <mvc:view-controller path="/toAdd" view-name="employee_add"></mvc:view-controller>
+
 
     <!--所以需要配置视图控制器后，设置开启mvc注解驱动的标签-->
     <mvc:annotation-driven/>

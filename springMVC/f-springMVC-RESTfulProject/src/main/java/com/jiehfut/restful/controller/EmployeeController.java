@@ -36,6 +36,33 @@ public class EmployeeController {
     }
 
 
+    // 前端通过 form 表单的 post 方法向后端添加数据，使用实体类 Employee 接收
+    @RequestMapping(value = "/employee", method = RequestMethod.POST)
+    public String addEmployee(Employee employee) {
+        employeeDao.save(employee);
+        // 添加信息以后对前端进行回显操作（重定向）到列表页
+        return "redirect:/employee";
+    }
 
 
+    // 前端查询某个员工信息，回显到前端，使用  add  "employee/2"
+    @RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
+    public String getEmployeeById(@PathVariable("id") Integer id, Model model) {
+        // 查询出来的数据通过请求域共享到前端
+        Employee employee = employeeDao.get(id);
+        model.addAttribute("employee", employee);
+        System.out.println(employee.toString());
+        return "employee_update";
+    }
+
+
+    // 实现用户的修改功能，前端使用 "/employee" 路由的 put 请求，传递 Employee 对象
+    @RequestMapping(value = "/employee", method = RequestMethod.PUT)
+    public String updateEmployee(Employee employee) {
+        // 保存修改数据
+        employeeDao.save(employee);
+        return "redirect:/employee";
+    }
+
+    
 }
