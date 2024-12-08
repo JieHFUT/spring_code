@@ -16,6 +16,7 @@
         <module>e-springMVC-RESTful</module>
         <module>f-springMVC-RESTfulProject</module>
         <module>g-springMVC-HttpMessageConverter</module>
+        <module>h-springMVC-interceptor</module>
     </modules>
 
     <properties>
