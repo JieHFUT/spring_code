@@ -50,38 +50,16 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
 
 
-
-
-
-    <!--针对 "/testInterceptor" 控制器的拦截器-->
-<!--<mvc:interceptors>
-        <bean class="com.jiehfut.interceptors.TestInterceptor"></bean>  该种配置会让该拦截器拦截所有的请求
-    </mvc:interceptors>-->
-
-    <!--使用 @Component 将拦截器交给 IOC 管理-->
-<!--<mvc:interceptors>
-        <ref bean="testInterceptor"></ref> 该种配置会让该拦截器拦截所有的请求
-    </mvc:interceptors>-->
-
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/*"/>
-            <mvc:exclude-mapping path="/"/>
-            <ref bean="testInterceptor"></ref>  <!--等于设置上下文路径下直接的所有请求（不包括"/"），拦截规则是 bean 里面的类，和过滤器不一样，如果想要拦截所有的请求需要设置"/**"-->
-        </mvc:interceptor>
-        <!--
-            如果在同一个请求中有多个拦截器，如果不设置顺序就按照配置的先后顺序执行
-            对于 preHandle       正序
-            对于 postHandle      反序
-            对于 afterCompletion 反序
-        -->
-        <mvc:interceptor>
-            <mvc:mapping path="/*"/>
-            <mvc:exclude-mapping path="/"/>
-            <ref bean="moreInterceptor"></ref>  <!--等于设置上下文路径下直接的所有请求（不包括"/"），拦截规则是 bean 里面的类，和过滤器不一样，如果想要拦截所有的请求需要设置"/**"-->
-        </mvc:interceptor>
-
-    </mvc:interceptors>
-
+    <!--自定义异常信息可以使用配置或者注解实现，这是使用配置信息-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!--key 里面写异常的全类名，双标签内写需要跳转的视图页面（不设置视图前缀，该视图仍然被 TemplateResolver 解析，加上前后缀）-->
+                <prop key="java.lang.ArithmeticException">error</prop>
+            </props>
+        </property>
+        <!--设置该标签属性就可以使用该键来存储我们当前的异常信息，默认存储在我们的请求域中的，以 value 属性中的值为键，值为，例如：java.lang.ArithmeticException: / by zero-->
+        <property name="exceptionAttribute" value="ex"></property>
+    </bean>
 
 </beans>
