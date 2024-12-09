@@ -1,6 +1,7 @@
 package com.jiehfut.config;
 
 import jakarta.servlet.Filter;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -15,6 +16,8 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * @Create 2024/12/9 0:45
  * @Version 1.0
  */
+
+
 public class WebInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
