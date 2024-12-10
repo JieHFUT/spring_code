@@ -5,7 +5,7 @@
 <mapper namespace="com.jiehfut.mapper.UserMapper">
 
     <!--int insertUser()-->
-    <insert id="insertUser()">
+    <insert id="insertUser">
         insert into t_user values (null, 'admin','123456',23,'男','32425987@qq.com')
     </insert>
 
