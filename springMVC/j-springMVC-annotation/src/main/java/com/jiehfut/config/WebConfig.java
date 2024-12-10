@@ -122,9 +122,13 @@ public class WebConfig implements WebMvcConfigurer {
         SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
         // 设置异常的视图映射
         Properties properties = new Properties();
-        properties.setProperty();
-
+        properties.setProperty("java.lang.ArithmeticException", "error");
+        exceptionResolver.setExceptionMappings(properties);
+        // 在请求域中共享信息的键
+        exceptionResolver.setExceptionAttribute("exception");
+        resolvers.add(exceptionResolver);
     }
+
 
     // 文件上传解析器
     // 6.文件上传解析器
@@ -133,5 +137,8 @@ public class WebConfig implements WebMvcConfigurer {
         StandardServletMultipartResolver multipartResolver = new StandardServletMultipartResolver();
         return multipartResolver;
     }
+
+
+
 
 }
