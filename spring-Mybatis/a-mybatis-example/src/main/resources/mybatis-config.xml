@@ -15,6 +15,8 @@
     <typeAliases>
         <!--如果不设置 alias 属性，将会有一个默认的别名：类名-->
         <typeAlias type="com.jiehfut.pojo.User" alias="pojo-user"></typeAlias>
+        <!--或者直接给某一个包设置别名，其下所有的类都会有默认的别名：类名-->
+        <package name="com.jiehfut.pojo"/>
     </typeAliases>
 
 
@@ -63,9 +65,11 @@
             </dataSource>
         </environment>
     </environments>
+
     <!--引入映射文件-->
     <mappers>
         <mapper resource="mappers/UserMapper.xml"/>
+        
     </mappers>
 
 
