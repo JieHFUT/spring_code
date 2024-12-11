@@ -11,6 +11,7 @@
     <modules>
         <module>a-mybatis-example</module>
         <module>b-mybatis-params</module>
+        <module>c-mybatis-resultMap</module>
     </modules>
 
 

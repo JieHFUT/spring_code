@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiehfut.mapper.EmpMapper">
+
+    <!--List<Emp> findAllEmp();-->
+    <select id="findAllEmpOld" resultType="emp">
+        <!--当属性名字和字段名字不一致的时候，1.设置别名即可，2.也可以进行全局配置，3.或者使用下面这种方法（resultMap）-->
+        select eid, emp_name empName, age, sex, email from t_emp
+    </select>
+
+    <!--List<Emp> findAllEmp();-->
+    <!--property：属性名   column：字段名-->
+    <resultMap id="empResultMap" type="Emp">
+        <id property="eid" column="eid"></id>
+        <result property="empName" column="emp_name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <result property="email" column="email"></result>
+    </resultMap>
+
+    <select id="findAllEmp" resultType="empResultMap">
+        select eid, emp_name empName, age, sex, email from t_emp
+    </select>
+
+
+
+
+
+
+</mapper>
