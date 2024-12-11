@@ -48,7 +48,7 @@
 
         <environment id="development">
             <transactionManager type="JDBC"/>
-            <!--<dataSource type="POOLED">
+        <!--<dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
                 <property name="url"
                           value="jdbc:mysql://localhost:3306/mybatis"/>
@@ -68,8 +68,10 @@
 
     <!--引入映射文件-->
     <mappers>
-        <mapper resource="mappers/UserMapper.xml"/>
-        
+    <!--<mapper resource="mappers/UserMapper.xml"/>-->
+        <!--以包为单位引入映射文件，mapper 接口所在的包要和映射文所在的包一致，mapper 接口要和映射文件的名字一样-->
+        <package name="com.jiehfut.mapper"/>
+
     </mappers>
 
 
