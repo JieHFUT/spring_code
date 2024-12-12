@@ -4,6 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jiehfut.mapper.DynamicSQLMapper">
 
+    <!--把表中经常查询出来的字段使用一个 sql 片段来进行接收-->
+    <sql id="empColumns">eid, emp_name, age, sex, email</sql>
 
     <!--
         可能的多条件查询：List<Emp> getEmpByCondition(Emp emp);  empName sex email age
@@ -27,7 +29,7 @@
         Emp(eid=5, empName=null, age=32, sex=男, email=234@gmail, dept=null)
     -->
     <select id="getEmpByCondition-one" resultType="Emp">
-        select * from t_emp where 1 = 1
+        select <include refid="empColumns"></include> from t_emp where 1 = 1
         <if test="empName != null and empName != ''">
             and emp_name = #{empName}
         </if>
@@ -109,7 +111,7 @@
     <!--List<Emp> getEmpByChoose(Emp emp);-->
     <!--choose when otherwise 不需要添加 and && or，哪个条件成立了就会将其拼接到 sql 语句中，只会拼接第一个-->
     <select id="getEmpByChoose" resultType="Emp">
-        select * from t_emp
+        select <include refid="empColumns"></include> from t_emp
         <where>
             <choose>
                 <when test="empName != null and empName != ''">
@@ -136,6 +138,7 @@
     <!--
         数组参数的访问的默认名称是：Available parameters are [array, arg0]
         ** 使用数组来批量删除信息
+        collection：设置需要循环的数组或者集合
         item：数组中的每一条信息
         separator：每次循环之间的分隔
     -->
@@ -155,6 +158,21 @@
 
 
 
+
+    <!--int insertMoreByList(List<Emp> emps);-->
+    <!--
+        通过 List 集合进行批量插入
+        Available parameters are [arg0, collection, list]
+        collection：设置需要循环的数组或者集合
+        item：数组中的每一条信息
+        separator：每次循环之间的分隔
+    -->
+    <insert id="insertMoreByList">
+        insert into t_emp values
+        <foreach collection="emps" item="emp" separator=",">
+            (null, #{emp.empName}, #{emp.age}, #{emp.sex}, #{emp.email}, null)
+        </foreach>
+    </insert>
 
 
 

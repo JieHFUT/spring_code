@@ -23,5 +23,5 @@ public interface DynamicSQLMapper {
     /**
      * 通过 List 集合进行批量添加
      */
-    int insertMoreByList(List<Emp> emps);
+    int insertMoreByList(@Param("emps") List<Emp> emps);
 }
