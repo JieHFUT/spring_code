@@ -9,4 +9,9 @@
         select * from t_emp where eid = #{eid}
     </select>
 
+    <!--void insertEmp(Emp emp);-->
+    <insert id="insertEmp">
+        insert into t_emp values (null, #{empName}, #{age}, #{sex}, #{email}, null)
+    </insert>
+
 </mapper>
