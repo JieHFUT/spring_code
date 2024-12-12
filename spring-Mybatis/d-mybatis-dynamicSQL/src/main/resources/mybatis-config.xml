@@ -4,23 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="jdbc.properties"/>
-
-    <!-- mybatis 全局设置数据库字段和类属性的匹配问题，value 设置为 true 开启转换-->
-    <settings>
-        <!--将下划线自动映射为驼峰：emp_name => empName-->
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <!--开始延迟加载-->
-        <setting name="lazyLoadingEnabled" value="true"/>
-    </settings>
-
     <typeAliases>
         <package name="com.jiehfut.pojo"/>
     </typeAliases>
-
-
-
-
-
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
