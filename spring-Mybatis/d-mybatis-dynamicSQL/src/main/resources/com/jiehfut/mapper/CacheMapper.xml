@@ -5,7 +5,8 @@
 <mapper namespace="com.jiehfut.mapper.CacheMapper">
 
     <!--开启二级缓存 SqlSessionFactory 缓存-->
-    <cache/>
+    <!--设置二级缓存的类型-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
 
     <!--<cache blocking="" eviction="" flushInterval="" readOnly="" size="" type=""/>-->
     <!--
