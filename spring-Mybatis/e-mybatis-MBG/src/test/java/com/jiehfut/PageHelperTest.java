@@ -20,7 +20,6 @@ public class PageHelperTest {
         InputStream stream = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(stream);
         SqlSession session = factory.openSession();
-
-
+        
     }
 }
