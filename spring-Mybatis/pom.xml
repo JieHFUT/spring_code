@@ -13,6 +13,7 @@
         <module>b-mybatis-params</module>
         <module>c-mybatis-resultMap</module>
         <module>d-mybatis-dynamicSQL</module>
+        <module>e-mybatis-MBG</module>
     </modules>
 
 
