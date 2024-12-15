@@ -2,6 +2,7 @@ package com.jiehfut;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.jiehfut.mapper.DeptMapper;
 import com.jiehfut.mapper.EmpMapper;
 import com.jiehfut.pojo.Dept;
@@ -66,6 +67,14 @@ public class TestMBG {
         // reasonable=false, pageSizeZero=false}[Dept{did=1, deptName='测试'}, Dept{did=2, deptName='开发'}, Dept{did=3, deptName='运营'}, Dept{did=4, deptName='运维'}]
         depts.forEach(dept -> System.out.println(dept));
         System.out.println("===========================");
+        // navigatePages：导航栏所展示的页码数
+        PageInfo<Dept> pageInfo = new PageInfo<>(depts, 5);
+        System.out.println(pageInfo);
+        // PageInfo{pageNum=1 页码, pageSize=4 当前页真实条数, size=4 设置的每页条数, startRow=1, endRow=4, total=7, pages=2,
+        // list=Page{count=true, pageNum=1, pageSize=4, startRow=0, endRow=4, total=7, pages=2, reasonable=false,
+        // pageSizeZero=false}[Dept{did=1, deptName='测试'}, Dept{did=2, deptName='开发'}, Dept{did=3, deptName='运营'}, Dept{did=4, deptName='运维'}],
+        // prePage=0, nextPage=2, isFirstPage=true, isLastPage=false, hasPreviousPage=false, hasNextPage=true,
+        // navigatePages=5, navigateFirstPage=1 第一页开始, navigateLastPage=2 第二页结束, navigatepageNums=[1, 2]}
         // 2.根据条件查询
 
         // 3.修改数据
