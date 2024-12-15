@@ -1,5 +1,7 @@
 package com.jiehfut;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.jiehfut.mapper.DeptMapper;
 import com.jiehfut.mapper.EmpMapper;
 import com.jiehfut.pojo.Dept;
@@ -41,6 +43,13 @@ public class TestMBG {
     }
 
     @Test
+    /**
+     * 在配置分页功能之后
+     * 只需要在使用查询功能之前开启分页功能即可
+     * Page page = PageHelper.startPage(int pageNum, int pageSize)
+     * pageNum : 页码
+     * pageSize: 每一页多少条记录
+     */
     public void testDeptMBG() throws IOException {
         InputStream stream = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(stream);
@@ -48,10 +57,14 @@ public class TestMBG {
         DeptMapper deptMapper = session.getMapper(DeptMapper.class);
 
         // 1.测试查询所有数据
+        // 在使用查询数据之前开启分页功能
+        Page<Object> page = PageHelper.startPage(1, 4);// 当前访问第一页，每一页访问四条数据
         List<Dept> depts = deptMapper.selectByExample(null);
-        for (Dept dept : depts) {
-            System.out.println(dept);
-        }
+        System.out.println(page);
+        // Page 对象
+        // Page{count=true, pageNum=1, pageSize=4, startRow=0, endRow=4, total=7, pages=2,
+        // reasonable=false, pageSizeZero=false}[Dept{did=1, deptName='测试'}, Dept{did=2, deptName='开发'}, Dept{did=3, deptName='运营'}, Dept{did=4, deptName='运维'}]
+        depts.forEach(dept -> System.out.println(dept));
         System.out.println("===========================");
         // 2.根据条件查询
 
