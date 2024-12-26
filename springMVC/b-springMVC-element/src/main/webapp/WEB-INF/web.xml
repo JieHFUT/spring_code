@@ -43,6 +43,7 @@
     </filter-mapping>
 
     <!--
+        源码
         public class CharacterEncodingFilter extends OncePerRequestFilter {
             @Nullable // 可以为空
             private String encoding;
