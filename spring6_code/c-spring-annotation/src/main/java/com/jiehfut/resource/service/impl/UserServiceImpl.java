@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
 
-    // 不指定名称，就会根据属性名称（myUserDao）进行注入，都不指定的话就会通过类型匹配
+    // 不指定名称，就会根据属性名称（myUserDaox）寻找组件名称进行注入，都不指定的话就会通过类型匹配
     @Resource()
     private UserDao myUserDaox;
 

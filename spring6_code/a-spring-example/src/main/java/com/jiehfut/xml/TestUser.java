@@ -14,8 +14,14 @@ public class TestUser {
 
     @Test
     public void testUserObject(){
-        // 1.加载 spring 配置文件，进行对象创建（）
+        // 1.加载 spring 配置文件，进行对象创建（），创建的对象是 ioc 容器
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+        System.out.println("***** id = " + context.getId());
+        System.out.println("***** applicationName = " + context.getApplicationName());
+        System.out.println("***** displayName = " + context.getDisplayName());
+        System.out.println("***** startupDate = " + context.getStartupDate());
+        System.out.println("***** parent = " + context.getParent());
+
         // 2.获取对象的创建
         User user = (User) context.getBean("user");
         System.out.println("user = " + user);
@@ -37,6 +43,21 @@ public class TestUser {
 
         // 测试手动写日志，可以将其打印到日志中
         logger.info("logger 调用成功！！！！！！！！！！！！！");
+
+        /**
+         * 2024-12-26 08:46:13 224 [main] DEBUG org.springframework.context.support.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@239b0f9d
+         * 2024-12-26 08:46:13 380 [main] DEBUG org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 1 bean definitions from class path resource [bean.xml]
+         * 2024-12-26 08:46:13 411 [main] DEBUG org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'user'
+         * User 的无参构造方法...
+         * ***** id = org.springframework.context.support.ClassPathXmlApplicationContext@3a62c01e
+         * ***** applicationName =
+         * ***** displayName = org.springframework.context.support.ClassPathXmlApplicationContext@3a62c01e
+         * ***** startupDate = 1735175030375
+         * ***** parent = null
+         * user = com.jiehfut.xml.User@4201a617
+         * add...
+         * 2024-12-26 08:46:13 446 [main] INFO com.jiehfut.xml.TestUser - logger 调用成功！！！！！！！！！！！！！
+         */
     }
 
     // 通过反射创建对象

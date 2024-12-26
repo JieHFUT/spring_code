@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class LogAspect {
     // 1.设置切入点和通知类型：value：切入点表达式配置切入点：即对哪个目标方法进行前置通知
     // "execution(public int com.jiehfut.aop.annotationaop.CalculatorImpl.add(int, int ))"
-    // "访问修饰符好 增强方法返回类型 增强方法所在类全路径.方法名称（方法参数）"
+    // "访问修饰符 增强方法返回类型 增强方法所在类全路径.方法名称（方法参数）"
 
     // 前置 @Before(value = "切入点表达式配置切入点")、
     // 返回 @AfterReturning、

@@ -31,7 +31,7 @@
             1.引入 spring 相关的依赖
                 - spring-core ：IOC和DI的基本实现
                 - spring-beans：BeanFactory和Bean的装配管理(BeanFactory)
-                - spring-context：Spring context上下文，即IOC容器(AppliactionContext)
+                - spring-context：Spring context上下文，即IOC容器 (AppliactionContext)
                 - spring-expression：spring表达式语言
         -->
         <dependency>

@@ -38,6 +38,8 @@
     </bean>
 
 
+
+
     <!--学生的 bean -->
     <bean id="student" class="com.jiehfut.iocxml.map.Student">
         <property name="sid" value="01"></property>

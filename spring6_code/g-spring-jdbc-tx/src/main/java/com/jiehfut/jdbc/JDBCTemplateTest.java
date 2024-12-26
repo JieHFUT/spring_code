@@ -14,7 +14,12 @@ import java.util.List;
 @SpringJUnitConfig(locations = "classpath:bean-jdbc.xml")
 public class JDBCTemplateTest {
 
-    // 注入相关类
+    /**
+     * 注入相关类
+     * [JdbcTemplate] 是 [Spring框架] 提供的一个工具类，用于简化 [JDBC] 编程。
+     * 它通过封装JDBC操作，减少了样板代码的编写，使得开发者可以更专注于业务逻辑的实现，
+     * 而不是处理繁琐的数据库连接和异常处理‌
+     */
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

@@ -22,7 +22,6 @@ public class TestUser {
     public static void main(String[] args) {
         // 1.获取配置信息
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-
         // 2.根据 id（唯一标识） 获取 bean
         User userById = (User) context.getBean("user");
         // 2.根据类型获取 bean

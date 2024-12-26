@@ -11,5 +11,10 @@ public class TestSource {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-annotation.xml");
         UserController userController = context.getBean(UserController.class);
         userController.insertUser();
+        /**
+         * controller...
+         * service...
+         * userdao-x...
+         */
     }
 }

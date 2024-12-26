@@ -26,8 +26,6 @@
 
 
 
-
-
     <!--2.内部 bean 注入-->
     <bean id="emp2" class="com.jiehfut.iocxml.special.Emp">
         <!--emp 类普通属性注入-->
