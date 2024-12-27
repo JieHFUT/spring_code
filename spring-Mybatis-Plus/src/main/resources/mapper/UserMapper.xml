@@ -8,4 +8,6 @@
     <select id="selectMapById" resultType="java.util.Map">
         select id, name, age, email from user where id = #{id};
     </select>
+
+
 </mapper>

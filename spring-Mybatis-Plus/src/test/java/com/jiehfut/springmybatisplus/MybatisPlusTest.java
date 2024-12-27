@@ -67,6 +67,7 @@ public class MybatisPlusTest {
         int batchIds = userMapper.deleteBatchIds(list);
         System.out.println("batchIds = " + batchIds);
         // DELETE FROM user WHERE id IN ( ? , ? )
+        // 添加逻辑删除字段后 ：UPDATE t_user SET is_deleted=1 WHERE uid IN ( ? , ? ) AND is_deleted=0
     }
 
 
@@ -89,6 +90,7 @@ public class MybatisPlusTest {
         User user = userMapper.selectById(1872219626836271105L);
         System.out.println("user = " + user);
         // SELECT id,name,age,email FROM user WHERE id=?
+        // 添加逻辑删除字段后 ：SELECT uid AS id,user_name AS name,age,email,is_deleted FROM t_user WHERE uid=? AND is_deleted=0
     }
 
     @Test // 根据多个 ID 查询多条记录

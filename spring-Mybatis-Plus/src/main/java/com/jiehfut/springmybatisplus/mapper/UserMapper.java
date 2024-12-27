@@ -8,6 +8,10 @@ import java.util.Map;
 
 
 @Repository
+/**
+ * 这个泛型<User>决定了从哪个表里面进行 sql 操作
+ * 可以使用在实体类添加注解设置实体类对应的表名
+ */
 public interface UserMapper extends BaseMapper<User> {
 
     /**

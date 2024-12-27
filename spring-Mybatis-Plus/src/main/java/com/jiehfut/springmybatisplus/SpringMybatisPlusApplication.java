@@ -10,7 +10,7 @@ public class SpringMybatisPlusApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringMybatisPlusApplication.class, args);
-
+        
     }
 
 }
