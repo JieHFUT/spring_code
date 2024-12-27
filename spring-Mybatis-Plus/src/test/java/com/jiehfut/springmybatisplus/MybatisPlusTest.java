@@ -99,6 +99,38 @@ public class MybatisPlusTest {
         // SELECT id,name,age,email FROM user WHERE id IN ( ? , ? , ? )
     }
 
+    @Test // 多条件查询
+    public void testSelectByMap(){
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "zhangsan");
+        map.put("age", 18);
+        List<User> users = userMapper.selectByMap(map);
+        System.out.println("users = " + users);
+        // SELECT id,name,age,email FROM user WHERE (name = ? AND age = ?)
+    }
+
+    @Test // 无条件查询所有用户记录
+    public void testSelectByNull(){
+        List<User> users = userMapper.selectList(null);
+        System.out.println("users = " + users);
+        // SELECT id,name,age,email FROM user
+    }
+
+    @Test // 自定义的查询 sql 语句
+    public void testSelfFunction(){
+        Map<String, Object> map = userMapper.selectMapById(1L);
+        System.out.println("map = " + map);
+    }
+
+    /**
+     * mybatis-plus
+     * 实现了一个 IService接口 && 实现类 ServiceImpl，
+     * 封装了常见的业务逻辑
+     */
+
+
+
+
 
 
 
