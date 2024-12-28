@@ -77,6 +77,8 @@ public class MybatisPlusWrapperTest {
     }
 
 
+
+
     @Test // 条件的优先级
     public void testPriority(){
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
@@ -92,6 +94,7 @@ public class MybatisPlusWrapperTest {
         // UPDATE t_user SET user_name=?
         // WHERE is_deleted=0 AND (user_name LIKE ? AND (age > ? OR email IS NULL))
     }
+
 
 
 
