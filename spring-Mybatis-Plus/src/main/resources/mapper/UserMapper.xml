@@ -10,4 +10,10 @@
     </select>
 
 
+    <!--Page<User> selectPageVo(@Param("page") Page<User> page, @Param("age") Integer age);-->
+    <select id="selectPageVo" resultType="User">
+        <!-- mabatis-plus 会自己实现分页功能 -->
+        select uid, user_name, age, email from t_user where age > #{age}
+    </select>
+
 </mapper>
