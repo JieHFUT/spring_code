@@ -1,6 +1,5 @@
 package com.jiehfut.springmybatisplusmultidatasource;
 
-import com.jiehfut.springmybatisplusmultidatasource.mapper.UserMapper;
 import com.jiehfut.springmybatisplusmultidatasource.pojo.Product;
 import com.jiehfut.springmybatisplusmultidatasource.pojo.User;
 import com.jiehfut.springmybatisplusmultidatasource.service.ProductService;
