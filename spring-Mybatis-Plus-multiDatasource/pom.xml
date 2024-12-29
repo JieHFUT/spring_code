@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.jiehfut</groupId>
-    <artifactId>spring-Mybatis-Plus</artifactId>
+    <artifactId>spring-Mybatis-Plus-multiDatasource</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-Mybatis-Plus</name>
-    <description>spring-Mybatis-Plus</description>
+    <name>spring-Mybatis-Plus-multiDatasource</name>
+    <description>spring-Mybatis-Plus-multiDatasource</description>
     <url/>
     <licenses>
         <license/>
@@ -64,20 +64,12 @@
             <version>8.0.28</version>
         </dependency>
 
-        <!--逆向工程的两个依赖-->
+        <!--多数据源的依赖-->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.5.1</version>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>3.5.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.31</version>
-        </dependency>
-
-
-
 
     </dependencies>
 
