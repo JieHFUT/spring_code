@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 public class MybatisPlusWrapperTest {
@@ -86,6 +87,7 @@ public class MybatisPlusWrapperTest {
         // lambda 表达式中的条件优先执行
         userQueryWrapper.like("user_name", "a")
                 // and 中填写条件构造器
+                // 注意 lambda 表达式中的条件会优先执行
                 .and(i -> i.gt("age", 20).or().isNull("email"));
         User user = new User();
         user.setName("xiaomin");
@@ -94,6 +96,20 @@ public class MybatisPlusWrapperTest {
         // UPDATE t_user SET user_name=?
         // WHERE is_deleted=0 AND (user_name LIKE ? AND (age > ? OR email IS NULL))
     }
+
+
+
+    @Test // 测试只查询一些相关字段
+    public void testSomeColmn(){
+        QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
+        // 查询用户的用户名，年龄，邮箱
+        userQueryWrapper.select("user_name", "age", "email");
+        List<Map<String, Object>> maps = userMapper.selectMaps(userQueryWrapper);
+        maps.forEach(System.out::println);
+        // SELECT user_name,age,email FROM t_user WHERE is_deleted=0
+    }
+
+
 
 
 
