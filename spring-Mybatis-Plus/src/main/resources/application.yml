@@ -24,6 +24,8 @@ mybatis-plus:
 
   # 用来配置类型别名对应的包
   type-aliases-package: com.jiehfut.springmybatisplus.pojo
+  # 配置扫描通用枚举
+  type-enums-package: com.jiehfut.springmybatisplus.enums
 
 
 
