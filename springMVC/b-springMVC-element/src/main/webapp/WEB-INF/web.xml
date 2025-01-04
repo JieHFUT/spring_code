@@ -61,7 +61,6 @@
                         response.setCharacterEncoding(encoding);
                     }
                 }
-
                 filterChain.doFilter(request, response);
             }
     -->

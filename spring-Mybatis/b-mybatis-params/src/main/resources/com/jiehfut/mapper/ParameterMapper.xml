@@ -35,7 +35,7 @@
         insert into t_user values(null, #{username}, #{password}, #{age}, #{sex}, #{email})
     </insert>
 
-    <!--User checkLoginByParam(@Param("useranme") String username, @Param("password") String password);-->
+    <!--User checkLoginByParam(@Param("username") String username, @Param("password") String password);-->
     <select id="checkLoginByParam" resultType="user">
         select * from t_user where username = #{username} and password = #{password}
     </select>
