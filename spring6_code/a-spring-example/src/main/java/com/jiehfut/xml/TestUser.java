@@ -16,6 +16,7 @@ public class TestUser {
     public void testUserObject(){
         // 1.加载 spring 配置文件，进行对象创建（），创建的对象是 ioc 容器
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
+
         System.out.println("***** id = " + context.getId());
         System.out.println("***** applicationName = " + context.getApplicationName());
         System.out.println("***** displayName = " + context.getDisplayName());

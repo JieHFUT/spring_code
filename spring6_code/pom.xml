@@ -28,10 +28,10 @@
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <!--
-            1.引入 spring 相关的依赖
+            1.引入 spring 核心相关的依赖
                 - spring-core ：IOC和DI的基本实现
-                - spring-beans：BeanFactory和Bean的装配管理(BeanFactory)
-                - spring-context：Spring context上下文，即IOC容器 (AppliactionContext)
+                - spring-beans：BeanFactory 和 Bean 的装配管理(BeanFactory)
+                - spring-context：Spring context 上下文，即 IOC 容器 (AppliactionContext)
                 - spring-expression：spring表达式语言
         -->
         <dependency>
@@ -63,49 +63,42 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.30</version>
         </dependency>
-
         <!-- 5.数据源 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.2.15</version>
         </dependency>
-
         <!--6.使用注解 @Resource-->
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.1.1</version>
         </dependency>
-
         <!--7.spring aop依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>6.0.2</version>
         </dependency>
-
         <!--8.spring aspects依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <version>6.0.2</version>
         </dependency>
-
         <!--9.spring 整合 junit 的支持相关依赖-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>6.0.2</version>
         </dependency>
-
         <!--10.junit 测试-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
         </dependency>
-
         <!--11.spring jdbc  Spring 持久化层支持jar包-->
         <dependency>
             <groupId>org.springframework</groupId>
