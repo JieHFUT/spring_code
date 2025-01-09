@@ -32,14 +32,17 @@ public class TestUser {
         /*
             如何使用反射创建的对象：
             1.加载 .xml 配置文件
-            2.对 .xml 文件进行解析
+            2.对 .xml 文件进行解析，如 dom4j 解析 xml 文档
             3.获得 .xml 文件中的属性，得到 bean 标签值 id 属性值和 class 属性值
-            4.使用反射根据类的全路径创建对象 Class.forName(class属性值)
-            5.创建好的对象被统一管理到一个 map 中（DefaultListableBeanFactory 类中有一个map属性
+            4.使用反射根据（无参）类的全路径创建对象 Class.forName(class属性值)
+            5.创建好的对象被统一管理到一个 map 中 （DefaultListableBeanFactory 类中有一个 map 属性
                                              private final Map<String, BeanDefinition> beanDefinitionMap;）
                                              其中 String 就是自己设定xml配置中唯一的标识
                                              beanDefinitionMap 是指类的描述信息（bean对象）
-            6.
+            6.Spring容器加载到Bean类时 , 会把这个类的描述信息, 以包名加类名的方式存到 beanDefinitionMap 中
+                                     （是否单例、Bean 类名、scope、isPrimary、是否懒加载 isLazyInit）
+              Map<String,BeanDefinition> , 其中 String是Key, 默认是类名首字母小写
+              BeanDefinition, 存的是类的定义(描述信息) , 我们通常叫 BeanDefinition 接口为 : bean的定义对象。
         */
 
         // 测试手动写日志，可以将其打印到日志中

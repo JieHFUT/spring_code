@@ -30,9 +30,9 @@
         <!--
             1.引入 spring 核心相关的依赖
                 - spring-core ：IOC和DI的基本实现
-                - spring-beans：BeanFactory 和 Bean 的装配管理(BeanFactory)
+                - spring-beans：BeanFactory 和 Bean 的装配管理 (BeanFactory)
                 - spring-context：Spring context 上下文，即 IOC 容器 (AppliactionContext)
-                - spring-expression：spring表达式语言
+                - spring-expression：spring 表达式语言
         -->
         <dependency>
             <groupId>org.springframework</groupId>
