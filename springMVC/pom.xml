@@ -30,7 +30,7 @@
 
 
     <dependencies>
-        <!-- SpringMVC -->
+        <!-- 1. SpringMVC -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -38,9 +38,7 @@
         </dependency>
 
 
-
-
-        <!-- 日志 -->
+        <!-- 2. 日志 -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -62,14 +60,13 @@
             <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>-->
+        <!--3. servlet API-->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>6.0.0</version>
             <scope>provided</scope>
         </dependency>
-
-
 
         <!-- Spring5和Thymeleaf整合包 -->
 <!--        <dependency>
@@ -78,6 +75,7 @@
             <version>3.0.12.RELEASE</version>
         </dependency>-->
 
+        <!--4. Spring6和Thymeleaf整合包-->
         <dependency>
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring6</artifactId>
@@ -85,7 +83,7 @@
         </dependency>
 
 
-        <!--后端将 java 对象转换成为 JSON 格式的依赖 jackson-databind jackson-annotations jackson-core-->
+        <!--5. 后端将 java 对象转换成为 JSON 格式的依赖 jackson-databind jackson-annotations jackson-core-->
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -93,7 +91,7 @@
             <version>2.15.2</version>
         </dependency>
 
-        <!--文件上传时候使用的依赖-->
+        <!--6. 文件上传时候使用的依赖-->
         <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
         <dependency>
             <groupId>commons-fileupload</groupId>

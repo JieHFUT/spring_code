@@ -10,6 +10,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!--配置 SpringMVC 配置文件的位置和名称-->
         <init-param>
+            <!-- contextConfigLocation为固定值 -->
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:springMVC.xml</param-value>
         </init-param>
@@ -22,8 +23,8 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <!-- / 表示前端发送的所有的请求，但是不包括 .jsp 文件的请求，
-    因为 .jsp 文件本身就是servlet，本身就是通过服务器指定的servlet来请求处理的，
-    不用DispatcherServlet处理，否则会把.jsp文件请求当成普通请求处理，不会找到.jsp页面-->
+    因为 .jsp 文件本身就是 servlet，本身就是通过服务器指定的 servlet 来请求处理的，
+    不用 DispatcherServlet 处理，否则会把.jsp文件请求当成普通请求处理，不会找到.jsp页面-->
 
 
 </web-app>
