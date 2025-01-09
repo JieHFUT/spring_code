@@ -36,6 +36,7 @@
 
 
 
+    5.下面是事务有关行为
     配置事务相关信息，对哪个数据源进行事务操作
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="druidDataSource"></property>
@@ -43,7 +44,7 @@
 
         开启事务的注解驱动
         通过注解 @Transactional 所标识的方法或标识的类中所有的方法，都会被事务管理器管理事务
-    transaction-manager属性的默认值是 transactionManager，如果事务管理器bean的id正好就是这个默认值，则可以省略这个属性
+    transaction-manager 属性的默认值是 transactionManager，如果事务管理器bean的id正好就是这个默认值，则可以省略这个属性
     <tx:annotation-driven transaction-manager="transactionManager" />
 -->
 

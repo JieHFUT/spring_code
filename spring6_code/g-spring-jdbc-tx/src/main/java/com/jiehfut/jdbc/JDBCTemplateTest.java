@@ -17,7 +17,7 @@ public class JDBCTemplateTest {
     /**
      * 注入相关类
      * [JdbcTemplate] 是 [Spring框架] 提供的一个工具类，用于简化 [JDBC] 编程。
-     * 它通过封装JDBC操作，减少了样板代码的编写，使得开发者可以更专注于业务逻辑的实现，
+     * 它通过封装 JDBC 操作，减少了样板代码的编写，使得开发者可以更专注于业务逻辑的实现，
      * 而不是处理繁琐的数据库连接和异常处理‌
      */
     @Autowired
@@ -81,6 +81,7 @@ public class JDBCTemplateTest {
     // 查询表中数据，以 list 集合形式返回
     @Test
     public void testQueryReturnList(){
+        // public <T> List<T> query(String sql, RowMapper<T> rowMapper)
         String sql = "select * from t_emp";
         List<Emp> queryResult = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Emp.class));
         for (Emp emp : queryResult) {

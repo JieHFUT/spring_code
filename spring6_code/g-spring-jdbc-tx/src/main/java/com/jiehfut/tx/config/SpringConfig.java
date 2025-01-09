@@ -21,7 +21,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan("com.jiehfut") // 组件扫描
-@EnableTransactionManagement // 表示开启事务管理
+@EnableTransactionManagement  // 表示开启事务管理
 public class SpringConfig {
 
     @Bean

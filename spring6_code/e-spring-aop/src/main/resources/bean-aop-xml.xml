@@ -12,14 +12,16 @@
 
     <!--1.开启组件扫描-->
     <context:component-scan base-package="com.jiehfut.aop.xmlaop"></context:component-scan>
+
+
     <!--2.配置 aop 五种通知类型-->
     <aop:config>
         <!--配置切面类-->
         <aop:aspect ref="logAspect">
-            <!--配置切入点-->
+            <!--2.1 配置切入点-->
             <aop:pointcut id="pointcut" expression="execution(* com.jiehfut.aop.xmlaop.CalculatorImpl.*(..))"/>
-            <!--配置五种通知类型-->
 
+            <!--2.2 配置五种通知类型-->
             <!--前置通知-->
             <aop:before method="beforeMethod" pointcut-ref="pointcut"></aop:before>
             <!--后置通知-->

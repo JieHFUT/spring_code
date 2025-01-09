@@ -18,7 +18,7 @@ public class TestFeflect {
         // 3.Class.forName("path")
         Class clazz3 = Class.forName("com.jiehfut.testreflect.Car");
 
-        // 实例化
+        // 实例化 - 无参构造方法进行实例化
         Car car = (Car) clazz3.getDeclaredConstructor().newInstance();
         System.out.println(car);
     }
@@ -53,7 +53,7 @@ public class TestFeflect {
     @Test
     public void testGetFiled() throws Exception {
         Class<Car> clazz1 = Car.class;
-        // 获取一个对象
+        // 获取一个对象（无参构造）
         Car car = (Car) clazz1.getDeclaredConstructor().newInstance();
         // 获取所有的属性（包含私有的属性）
         Field[] fields = clazz1.getDeclaredFields();
