@@ -14,16 +14,15 @@ public class User {
     }
 
 
-    // 初始化方法
+    // 初始化方法（在 bean-lifecycle.xml 中指定）
     public void initMethod() {
         System.out.println("4.bean 对象初始化，调用指定的初始化方法...");
     }
 
-    // 销毁方法
+    // 销毁方法（在 bean-lifecycle.xml 中指定）
     public void destroyMethod() {
         System.out.println("7.bean 对象销毁，调用指定的销毁方法...");
     }
-
 
     public String getName() {
         return name;

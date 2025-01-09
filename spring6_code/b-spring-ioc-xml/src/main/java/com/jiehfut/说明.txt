@@ -12,3 +12,7 @@
 9.FactoryBean(getObject && getObjectType) factorybean => bean-factorybean.xml
 10.基于 xml 的自动装配(配置自动配置) auto => bean-auto.xml
 11.引入外部属性文件 jdbc(value = ${jdbc.url}) => bean-jdbc.xml
+
+
+
+NoUniqueBeanDefinitionException

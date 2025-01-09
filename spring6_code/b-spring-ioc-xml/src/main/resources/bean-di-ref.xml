@@ -23,6 +23,7 @@
     <bean id="lessonx" class="com.jiehfut.iocxml.map.Lesson">
         <property name="lname" value="JVM虚拟机"></property>
     </bean>
+
     <bean id="lessony" class="com.jiehfut.iocxml.map.Lesson">
         <property name="lname" value="java并发编程的魅力"></property>
     </bean>
@@ -51,7 +52,7 @@
 
 
     <!--
-        使用util:list、util:map标签必须引入相应的命名空间
+        使用util:list、util:map 签必须引入相应的命名空间
 
         <?xml version="1.0" encoding="UTF-8"?>
         <beans xmlns="http://www.springframework.org/schema/beans"

@@ -4,7 +4,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 
-// 配置后：后置处理器在整个 IoC 容器中对所有的 bean 对象生效
+// 配置后：todo: 后置处理器在整个 IoC 容器中对所有的 bean 对象生效
+
 public class BeanPrevPost implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

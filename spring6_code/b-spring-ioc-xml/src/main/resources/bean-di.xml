@@ -3,6 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--
+        private String bname;
+        private String author;
+        private String nullValue;
+    -->
+
     <!--1.基于 setter 方法注入-->
     <bean id="book" class="com.jiehfut.iocxml.di.Book">
         <!--property：属性，在这个标签中会调用 setter 方法对属性进行注入，spring 会把 value 看成字面量赋值-->
@@ -12,8 +18,9 @@
 
         <!--otherValue 属性为 null 值，设置方法如下-->
         <property name="nullValue"> <null></null> </property>
-        <!--转义实体 xml实体来代替，（使用 &lt 代表 <）（使用 &gt 代表 >） -->
-        <!--或者不使用 xml 实体代替，使用 CDATA 节，（使用 <![CDATA[a < b]]> 来代替 a < b）-->
+
+        <!--转义实体 xml 实体来代替，（使用 &lt 代表 <）（使用 &gt 代表 >） -->
+        <!--或者不使用 xml 实体代替，使用 CDATA 节，（使用  <![CDATA[a < b]]>  来代替 a < b）-->
     </bean>
 
     <!--2.基于构造方法进行依赖注入-->

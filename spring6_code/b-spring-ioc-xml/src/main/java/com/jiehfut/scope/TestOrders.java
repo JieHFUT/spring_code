@@ -18,7 +18,7 @@ public class TestOrders {
           - Creating shared instance of singleton bean 'orders'
         */
         Orders orders2 = (Orders) context.getBean("orders", Orders.class);
-        System.out.println(orders == orders2);// true
+        System.out.println(orders == orders2); // true
     }
     
     @Test
@@ -28,6 +28,6 @@ public class TestOrders {
         System.out.println(orders);
 
         Orders orders2 = (Orders) context.getBean("orders", Orders.class);
-        System.out.println(orders == orders2);// false
+        System.out.println(orders == orders2); // false
     }
 }

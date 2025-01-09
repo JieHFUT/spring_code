@@ -12,6 +12,7 @@
     </bean>
 
 
+    <!--todo:后置处理器-->
     <!--bean 的后置处理器要在配置后才能生效，对所有的 bean 对象生效-->
     <bean id="beanProcessor" class="com.jiehfut.lifecycle.BeanPrevPost">
 

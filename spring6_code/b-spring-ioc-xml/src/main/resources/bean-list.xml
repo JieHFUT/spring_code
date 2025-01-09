@@ -8,6 +8,7 @@
         <property name="ename" value="zhangsan"></property>
         <property name="age" value="19"></property>
     </bean>
+
     <bean id="empy" class="com.jiehfut.iocxml.list.Emp">
         <property name="ename" value="lisi"></property>
         <property name="age" value="29"></property>
