@@ -9,6 +9,7 @@ public class TestMFactoryBean {
     public void testMFactoryBean(){
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-factorybean.xml");
         User user = (User) context.getBean("user");
-        System.out.println(user);
+
+        System.out.println(user);// com.jiehfut.factorybean.User@3bb9efbc
     }
 }

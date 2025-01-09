@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    // 6. @Autowired 注解和 Qualifier 注解联合
+    // 6. @Autowired 注解和 @Qualifier 注解联合
     @Autowired
-    @Qualifier(value = "userDaoImplX")
+    @Qualifier(value = "userDaoImplX") // 指定注入的组件名称
     private UserDao userDao;
 
 
@@ -23,4 +23,5 @@ public class UserServiceImpl implements UserService {
         System.out.println("service...");
         userDao.insertUser();
     }
+
 }

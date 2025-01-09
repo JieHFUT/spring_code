@@ -10,6 +10,7 @@ public class TestAuto {
     @Test
     public void testAuto(){
         ApplicationContext context = new ClassPathXmlApplicationContext("bean-auto.xml");
+        
         UserController userController = context.getBean("userController", UserController.class);
         userController.addUser();
 

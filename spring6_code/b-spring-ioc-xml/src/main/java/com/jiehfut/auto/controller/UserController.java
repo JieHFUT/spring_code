@@ -9,6 +9,8 @@ public class UserController {
     public UserService getUserService() {
         return userService;
     }
+
+    // 配置通过 set 给 userService 赋值
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
@@ -19,6 +21,5 @@ public class UserController {
         userService.addUserService();
         System.out.println("userController 中的方法执行了...");
     }
-
-
+    
 }

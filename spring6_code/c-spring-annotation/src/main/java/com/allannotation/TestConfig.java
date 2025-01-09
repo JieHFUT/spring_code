@@ -11,6 +11,7 @@ public class TestConfig {
     @Test
     public void testConfig(){
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+
         UserController userController = context.getBean(UserController.class);
         userController.insertUser();
     }

@@ -5,11 +5,11 @@ import com.jiehfut.autowired.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-@Controller
+@Controller// 使用注解向容器中注入组件的时候，默认的组件名称就是类名的首字母小写
 public class UserController {
 /*
-      @Autowired 根据类型进行匹配
-      @Qualifier 根据名称进行匹配
+    @Autowired 根据类型进行匹配
+    @Qualifier 根据名称进行匹配
 
     // 1.通过属性注入 service
     @Autowired // 根据类型找到对应的实现类的对象，完成注入
